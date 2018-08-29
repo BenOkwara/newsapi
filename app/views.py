@@ -7,8 +7,9 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-    message = 'Welcome to News API'
-    return render_template('index.html', message = message)
+    message = 'Welcome to News api room'
+    title = 'Home - Welcome to The best News Review Website Online'
+    return render_template('index.html', message = message, title = title)
 #
 # @app.route('/source/<source_id>')
 # def source(source_id):
