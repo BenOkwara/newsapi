@@ -10,16 +10,70 @@ def index():
 
     '''
 
-    # Getting popular news
+    # Getting popular news from different categories
     general_news = get_sources('general')
-    print(general_news)
+
     message = 'Welcome to News api room'
     title = 'Home - Welcome to The best News Review Website Online'
 
     return render_template('index.html',
-                           message=message,
-                           title=title,
-                           general=general_news)
+                            message=message,
+                            title=title,
+                            general=general_news)
+
+@app.route('/general')
+def general():
+
+    general_news = get_sources('general')
+    title = 'Home Page - Get The latest News Online Across The World'
+    return render_template('general.html',general=general_news)
+
+# BUSINESS PAGE
+
+@app.route('/business')
+def business():
+
+    business_news = get_sources('business')
+    title= 'Home Page - Get The latest News Online Across The World'
+    return render_template('business.html',business=business_news)
+
+@app.route('/entertainment')
+def entertainment():
+
+    entertainment_news = get_sources('entertainment')
+    title = 'Home Page - Get The latest News Online Across The World'
+    return render_template('entertainment.html', entertainment=entertainment_news)
+
+@app.route('/technology')
+def technology():
+
+    technology_news = get_sources('technology')
+    title = 'Home Page - Get The latest News Online Across The World'
+    return render_template('technology.html',technology=technology_news)
+
+
+@app.route('/sports')
+def sports():
+
+    sports_news = get_sources('general')
+    title = 'Home Page - Get The latest News Online Across The World'
+    return render_template('sports.html',sports=sports_news)
+
+
+@app.route('/science')
+def science():
+
+    science_news = get_sources('science')
+    title = 'Home Page - Get The latest News Online Across The World'
+    return render_template('science.html',science=science_news)
+
+@app.route('/health')
+def health():
+
+    health_news = get_sources('health')
+    title= 'Home Page - Get The latest News Online Across The World'
+    return render_template('health.html',health=health_news)
+
 
 @app.route('/source/<int:source_id>')
 def source(source_id):
@@ -43,4 +97,3 @@ def source(source_id):
     '''
 
     return render_template('sources.html',id=source_id)
-
