@@ -6,6 +6,15 @@
 <head>
     <meta charset="UTF-8">
     {% if title%}
+    <!---->
+    <!--Unlike the variable blocks defined -->
+    <!--with {{}} control blocks are defined using {% %}. -->
+    <!--They are used to declare functions,loops and if statements.-->
+
+<!--The if statement checks if we have provided a-->
+    <!--title variable for the template. In the chance-->
+    <!--that you forget to provide a title to your template the else-->
+    <!--control block is executed and a default title is used instead.-->
     <title> {{title}} </title>
 
     {%else%}
