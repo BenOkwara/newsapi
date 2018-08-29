@@ -8,7 +8,6 @@ Source = source.Source
 api_key = app.config['NEWS_API_KEY']
 
 # Getting the news source base url
-
 base_url = app.config['SEARCH_API_BASE_URL']
 
 # Getting TOP HEADLINES url - the most popular headlines of the day
@@ -46,19 +45,13 @@ def get_sources(category):
 
     return source_results
 
-# We need to create a function that will process the results
-# and create news source objects from the elements that we need.
-
-
 def process_results(source_list):
     '''
     Function  that processes the
     news source result and transform them to a list of Objects
-
     Args:
         source_list: A list of dictionaries that
          contain news source details
-
     Returns :
         source_results: A list of news source objects
     '''
