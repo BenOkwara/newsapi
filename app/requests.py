@@ -11,8 +11,11 @@ api_key = app.config['NEWS_API_KEY']
 
 base_url = app.config['NEWS_API_BASE_URL']
 
+# Getting source url
+source_url = app.config['NEWS_SOURCE_URL']
 
-def get_sources(category):
+
+def get_sources(country, category):
     '''
     Function that gets the json response to our url request
     This takes in a news category as an argument.
@@ -30,7 +33,7 @@ def get_sources(category):
       We then convert the JSON response to a Python dictionary
       using json.loads function and pass in the get_sources_data variable.
     '''
-    get_sources_url = base_url.format(category,api_key)
+    get_sources_url = base_url.format(country, category, api_key)
 
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
@@ -38,10 +41,9 @@ def get_sources(category):
 
         source_results = None
 
-        if get_sources_response['results']:
-            source_results_list = get_sources_response['results']
+        if get_sources_response['sources']:
+            source_results_list = get_sources_response['sources']
             source_results = process_results(source_results_list)
-
 
     return source_results
 
@@ -62,11 +64,12 @@ def process_results(source_list):
     Returns :
         source_results: A list of news source objects
     '''
-
     source_results = []
     for source_item in source_list:
         id = source_item.get('id')
+        print(id)
         name = source_item.get('name')
+        print(name)
         description = source_item.get('description')
         url = source_item.get('url')
         category = source_item.get('category')
@@ -82,4 +85,3 @@ def process_results(source_list):
             source_results.append(source_object)
 
     return source_results
-

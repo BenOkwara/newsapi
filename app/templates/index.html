@@ -21,7 +21,18 @@
     <title> Welcome to the best News website in the world </title>
     {%endif%}
 </head>
-<body>
 
-</body>
+
+
+<body>
+        <!-- Top headline section  -->
+        <h3> TOP HEADLINES </h3>
+         <ul>
+            {% for top_headline in top_headlines %}
+                <li>{{ top_headline.category}}</li>
+            {% endfor %}
+        </ul>
+ </body>
+
+
 </html>
