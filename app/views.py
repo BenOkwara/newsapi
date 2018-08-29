@@ -8,44 +8,12 @@ def index():
     '''
     View root page function that returns the index page and its data.
 
-    If we want to display specific categorical news, then we would
-     first create a variable and then use the get() method to call it.
-    top_headlines = get_sources('us','business')
-    We can also have a get_all() function that gets all the news
-    Example call from views would be
-    everything
     '''
-     # My example is
-    # typeof_category = get_sources('country','category')
-    # print(typeof_category)
 
-    # business_category = get_sources('uk', 'business')
-    # print(business_category)
-    #
-    #
-    # general_category = get_sources('uk', 'general')
-    # print(general_category)
-    #
-    # technology_category = get_sources('uk', 'technology')
-    # print(technology_category)
-    #
-    # sports_category = get_sources('uk', 'sports')
-    # print(sports_category)
-    #
-    # health_category = get_sources('uk', 'health')
-    # print(health_category)
-    #
-    # science_category = get_sources('uk', 'science')
-    # print(science_category)
-    #
-    # entertainment_category = get_sources('uk', 'entertainment')
-    # print(entertainment_category)
-    #
-    # test_args = 'The Print Is Actually Showing'
+    # Getting popular news
 
-    top_headlines = get_sources('country', 'category')
-    print(top_headlines)
-
+    general_news = get_sources('general')
+    print(general_news)
     message = 'Welcome to News api room'
     title = 'Home - Welcome to The best News Review Website Online'
 
@@ -53,14 +21,7 @@ def index():
                            # test_param=test_args,
                            message=message,
                            title=title,
-                           top_headlines=top_headlines)
-                           # general=general_category,
-                           # business=business_category,
-                           # technology=technology_category,
-                           # sports=sports_category,
-                           # health=health_category,
-                           # science=science_category,
-                           # entertainment=entertainment_category)
+                           general=general_news)
 
 @app.route('/source/<int:source_id>')
 def source(source_id):

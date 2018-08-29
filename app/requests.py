@@ -9,13 +9,13 @@ api_key = app.config['NEWS_API_KEY']
 
 # Getting the news source base url
 
-base_url = app.config['NEWS_API_BASE_URL']
+base_url = app.config['SEARCH_API_BASE_URL']
 
-# Getting source url
-source_url = app.config['NEWS_SOURCE_URL']
+# Getting source url - basically headlines
+source_url = app.config['HEADLINES_API_BASE_URL']
 
 
-def get_sources(country, category):
+def get_sources(category):
     '''
     Function that gets the json response to our url request
     This takes in a news category as an argument.
@@ -33,7 +33,7 @@ def get_sources(country, category):
       We then convert the JSON response to a Python dictionary
       using json.loads function and pass in the get_sources_data variable.
     '''
-    get_sources_url = base_url.format(country, category, api_key)
+    get_sources_url = base_url.format(category, api_key)
 
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
