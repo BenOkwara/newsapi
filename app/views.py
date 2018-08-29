@@ -11,14 +11,12 @@ def index():
     '''
 
     # Getting popular news
-
     general_news = get_sources('general')
     print(general_news)
     message = 'Welcome to News api room'
     title = 'Home - Welcome to The best News Review Website Online'
 
     return render_template('index.html',
-                           # test_param=test_args,
                            message=message,
                            title=title,
                            general=general_news)
