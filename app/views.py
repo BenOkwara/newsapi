@@ -49,12 +49,16 @@ def business():
     title= 'Home Page - Get The latest News Online Across The World'
     return render_template('business.html',business=business_news)
 
+# ENTERTAINMENT PAGE
+
 @app.route('/entertainment')
 def entertainment():
 
     entertainment_news = get_sources('entertainment')
     title = 'Home Page - Get The latest News Online Across The World'
     return render_template('entertainment.html', entertainment=entertainment_news)
+
+# TECHNOLOGY PAGE
 
 @app.route('/technology')
 def technology():
@@ -64,6 +68,8 @@ def technology():
     return render_template('technology.html',technology=technology_news)
 
 
+# SPORTS
+
 @app.route('/sports')
 def sports():
 
@@ -71,13 +77,15 @@ def sports():
     title = 'Home Page - Get The latest News Online Across The World'
     return render_template('sports.html',sports=sports_news)
 
-
+# SCIENCE
 @app.route('/science')
 def science():
 
     science_news = get_sources('science')
     title = 'Home Page - Get The latest News Online Across The World'
     return render_template('science.html',science=science_news)
+
+# HEALTH
 
 @app.route('/health')
 def health():
@@ -87,29 +95,19 @@ def health():
     return render_template('health.html',health=health_news)
 
 
+
 @app.route('/source/<int:source_id>')
 def source(source_id):
     '''
-    View source page function that returns the news company page and its data.
-    In this project, I will use source to describe the "news company", in the
-    LMS it's the movie page that has many movies.
-    A user can then click on movies to see a specific movie, so in my project.
-    A user will be able to click on specific news company
-    to see the news articles written by the company.
-    These articles will be displayed in a card format
-    so I'll edit that in the bootstrap and HTML of the article.html.
-    View source page function that returns the source of the news
-     e.g BBC, CNN details page and its data, the data being the specific
-     articles posted by the specific news company or source.
-    These articles will be displayed in a card format so I'll edit that
-    in the bootstrap and HTML of the article.html.
-    View source page function that returns the source of the
-    news e.g BBC, CNN details page and its data, the data being the specific articles
-    posted by the specific news company or source.
+
+    Display news companies e.g BBC, CNN details page and data being specific articles
+    posted by news sources.
     '''
     return render_template('sources.html',id=source_id)
 
-@app.route('/templates/article/<id>')
+
+app.route('/article/int:article_id')
+# @app.route('/templates/article/<id>')
 def article(id):
     '''
     returns the articles
