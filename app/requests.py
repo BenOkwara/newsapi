@@ -80,3 +80,23 @@ def process_results(source_list):
             source_results.append(source_object)
 
     return source_results
+
+
+def get_articles(id):
+    '''
+    function to get json response from url
+    '''
+
+    get_articles_details_url = article_base_url.format(id, api_key)
+    print(get_articles_details_url)
+    with urllib.request.urlopen(get_articles_details_url) as url:
+        articles_details_data = url.read()
+        articles_details_response = json.loads(articles_details_data)
+
+        articles_results = None
+
+        if articles_details_response['articles']:
+            article_results_list = articles_details_response['articles']
+            articles_results = process_articles(article_results_list)
+
+    return articles_results

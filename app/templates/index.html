@@ -1,18 +1,8 @@
-
+{% extends 'base.html'%}
 {% import 'macros.html' as macro%}
 
-<html>
-<head>
-    <meta charset="UTF-8">
-    {% if title%}
-    <title> {{title}} </title>
 
-    {%else%}
-    <title> Welcome to the best News website in the world </title>
-    {%endif%}
-</head>
-
-<body>
+{% block content %}
         <!-- General Category Home section  -->
         <h3> TOP AND GENERAL HEADLINES </h3>
          <ul>
@@ -55,6 +45,4 @@
 
         </ul>
 
- </body>
-
-</html>
+{% endblock%}
