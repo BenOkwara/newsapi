@@ -36,6 +36,8 @@
 
 <h3> BUSINESS NEWS </h3>
          <ul>
+
+             {{ macro.displaySourceList(business)}}
             {% for business_news in business %}
 
              <!--Loop the general news in the general category of the NewsAPI-->
@@ -106,7 +108,7 @@
             {% for technology_news in technology %}
 
              <!--Loop the general news in the general category of the NewsAPI-->
-             <li>{{ technologyl_id}}</li>
+             <li>{{ technology_id}}</li>
              <li>{{ technology_news.name}}</li>
              <li>{{ technology_news.description}}</li>
              <li>{{ technology_news.url}}</li>
