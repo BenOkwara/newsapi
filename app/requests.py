@@ -105,7 +105,6 @@ def process_articles(articles_list):
         urlToImage = item.get('urlToImage')
         publishedAt = item.get('publishedAt')
 
-
         if url:
 
             articles_object = Article (id,

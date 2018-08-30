@@ -19,8 +19,16 @@
 
         </ul>
 
+
         {%for article in articles %}
         <p>{{article.title}}</p>
+<p>{{article.description}}</p>
+<p>{{article.url}}</p>
+<p>{{article.urlToImage}}</p>
+<p>{{article.publishedAt}}</p>
+
+
+
         {% endfor %}
 
 
