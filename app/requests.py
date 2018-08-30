@@ -97,14 +97,16 @@ def get_articles(id):
 
         if articles_details_response['articles']:
             article_results_list = articles_details_response['articles']
+
             articles_results = process_articles(article_results_list)
+
+            print(articles_results)
 
     return articles_results
 
 def process_articles(articles_list):
     article_results = []
     for item in articles_list:
-        print(item)
         author = item.get('author')
         title = item.get('title')
         description = item.get('description')
