@@ -21,7 +21,16 @@ def index():
     message = 'Welcome to News api room'
     title = 'Home - Welcome to The best News Review Website Online'
 
-    return render_template('index.html', articles=articles)
+    return render_template('index.html',
+                           articles=articles,
+                           general=general_news,
+                           business=business_news,
+                           entertainment=entertainment_news,
+                           technology=technology_news,
+                           science=science_news,
+                           health=health_news,
+                           sports=sports_news)
+
 def article(id):
     '''
     returns the articles

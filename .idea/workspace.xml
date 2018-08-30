@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5f048c9-f0de-40eb-8e50-d122520372c7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/models/articles.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/articles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/requests.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/requests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/macros.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/macros.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +22,7 @@
         <counts>
           <entry key="HTML" value="1619" />
           <entry key="PLAIN_TEXT" value="26" />
-          <entry key="Python" value="5525" />
+          <entry key="Python" value="5660" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -41,7 +37,7 @@
         <counts>
           <entry key="gitignore" value="26" />
           <entry key="html" value="1619" />
-          <entry key="py" value="5525" />
+          <entry key="py" value="5660" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -60,8 +56,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-35">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="411">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -216,8 +212,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="294" />
-    <option name="y" value="23" />
+    <option name="x" value="183" />
+    <option name="y" value="59" />
     <option name="width" value="1204" />
     <option name="height" value="691" />
   </component>
@@ -290,15 +286,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="294" y="23" width="1204" height="691" extended-state="0" />
-    <editor active="true" />
+    <frame x="183" y="59" width="1204" height="691" extended-state="0" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26289096" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26289096" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.2888147" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.9866444" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32888147" />
@@ -548,8 +543,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-35">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="411">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
