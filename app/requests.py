@@ -100,3 +100,19 @@ def get_articles(id):
             articles_results = process_articles(article_results_list)
 
     return articles_results
+
+
+def process_articles(articles_list):
+    article_results = []
+    for item in articles_list:
+        author = item.get('author')
+        title = item.get('title')
+        description = item.get('description')
+        url = item.get('url')
+        image_url = item.get('urlToImage')
+        publish_time = item.get('publishedAt')
+
+        articles_object = Article(author, title, description, url, image_url, publish_time)
+        article_results.append(articles_object)
+
+    return article_results

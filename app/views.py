@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .requests import get_sources
+from .requests import get_sources, get_articles
 
 # Views
 @app.route('/')
@@ -97,15 +97,23 @@ def source(source_id):
     A user will be able to click on specific news company
     to see the news articles written by the company.
     These articles will be displayed in a card format
-    so I'll edit that in the bootstrap and HTML of the articles.html.
+    so I'll edit that in the bootstrap and HTML of the article.html.
     View source page function that returns the source of the news
      e.g BBC, CNN details page and its data, the data being the specific
      articles posted by the specific news company or source.
     These articles will be displayed in a card format so I'll edit that
-    in the bootstrap and HTML of the articles.html.
+    in the bootstrap and HTML of the article.html.
     View source page function that returns the source of the
     news e.g BBC, CNN details page and its data, the data being the specific articles
     posted by the specific news company or source.
     '''
-
     return render_template('sources.html',id=source_id)
+
+@app.route('/templates/article/<id>')
+def article(id):
+    '''
+    returns the articles
+    '''
+    article_news = get_articles(id)
+    title = f'{id}'
+    return render_template('article.html', title=title, article=article_news)
