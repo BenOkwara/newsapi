@@ -1,2 +1,17 @@
 
 
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+
+
+{% block content %}
+
+<h3> TECHNOLOGY NEWS </h3>
+         <ul>
+           {{ macro.displaySourceList(technology)}}
+
+        </ul>
+
+
+
+{% endblock%}

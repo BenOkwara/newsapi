@@ -101,10 +101,10 @@ def get_articles(id):
 
     return articles_results
 
-
 def process_articles(articles_list):
     article_results = []
     for item in articles_list:
+        print(item)
         author = item.get('author')
         title = item.get('title')
         description = item.get('description')

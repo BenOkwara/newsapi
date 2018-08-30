@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+
+{% block content %}
+
+
+
+<h3> ENTERTAINMENT NEWS </h3>
+         <ul>
+            {{ macro.displaySourceList(entertainment)}}
+
+        </ul>
+
+
+{% endblock%}

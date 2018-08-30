@@ -1,48 +1,21 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
 
+<!-- Styles block -->
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
 
 {% block content %}
         <!-- General Category Home section  -->
-        <h3> TOP AND GENERAL HEADLINES </h3>
+        <h3 text-center> NEWS SOURCES </h3>
          <ul>
-
              {{ macro.displaySourceList(general)}}
 
         </ul>
 
-<h3> BUSINESS NEWS </h3>
-         <ul>
-
-             {{ macro.displaySourceList(business)}}
-
-        </ul>
-
-
-<h3> SPORTS NEWS </h3>
-         <ul>
-              {{ macro.displaySourceList(sports)}}
-
-        </ul>
-
-
-<h3> ENTERTAINMENT NEWS </h3>
-         <ul>
-            {{ macro.displaySourceList(entertainment)}}
-
-        </ul>
-
-
-<h3> SCIENCE NEWS </h3>
-         <ul>
-             {{ macro.displaySourceList(science)}}
-
-        </ul>
-
-<h3> TECHNOLOGY NEWS </h3>
-         <ul>
-           {{ macro.displaySourceList(technology)}}
-
-        </ul>
 
 {% endblock%}

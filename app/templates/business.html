@@ -1,20 +1,15 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
 
-<body>
+{% block content %}
+
 <h3> BUSINESS NEWS </h3>
          <ul>
 
+             {{ macro.displaySourceList(business)}}
 
-            {% for business_news in business %}
-
-             <!--Loop the general news in the general category of the NewsAPI-->
-             <li>{{ business_id}}</li>
-             <li>{{ business_news.name}}</li>
-             <li>{{ business_news.description}}</li>
-             <li>{{ business_news.url}}</li>
-             <li>{{ business_news.country}}</li>
-             <li>{{ business_news.category}}</li>
-
-            {% endfor %}
         </ul>
-</body>
 
+
+
+{% endblock%}
