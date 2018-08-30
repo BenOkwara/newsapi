@@ -7,7 +7,6 @@ from .requests import get_sources, get_articles
 def index():
     '''
     View root page function that returns the index page and its data.
-
     '''
 
     # Getting popular news from different categories

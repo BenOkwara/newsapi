@@ -1,5 +1,5 @@
 import unittest
-from models import source
+from app.models import source
 Source = source.Source
 
 class SourceTest(unittest.TestCase):
@@ -25,19 +25,15 @@ class SourceTest(unittest.TestCase):
             test_init to ensure objects are instantiated correctly
             :return:
             '''
-            self.assertEqual(self.new_source.id, "al-jazeera-english")
-            self.assertEqual(self.new_source.name, "Al Jazeera English")
-            self.assertEqual(self.new_source.description, 'News, analysis from the Middle East'
-                                                          ' and worldwide, multimedia'
-                                                          ' and interactives,'
-                                                          ' opinions, documentaries, podcasts, '
-                                                          'long reads and broadcast schedule.')
-            self.assertEqual(self.new_source.url, "http://www.aljazeera.com")
+            self.assertEqual(self.new_source.id, "abc-news")
+            self.assertEqual(self.new_source.name, "ABC News")
+            self.assertEqual(self.new_source.description, 'Your trusted source for breaking news, analysis, '
+                                                          'exclusive interviews, headlines,'
+                                                          ' and videos at ABCNews.com.')
+            self.assertEqual(self.new_source.url, "http://abcnews.go.com")
             self.assertEqual(self.new_source.category, "general")
             self.assertEqual(self.new_source.country, "us")
 
 
-
-
-    if __name__ == '__main__':
-        unittest.main()
+if __name__ == '__main__':
+    unittest.main()

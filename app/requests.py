@@ -17,19 +17,6 @@ def get_sources(category):
     '''
     Function that gets the json response to our url request
     This takes in a news category as an argument.
-    We use the .format() method below on the base_url
-    and pass in the news source category and the api_key.
-    this will replace the {} curly brace placeholders in
-    the base_url with the category and api_key respectively.
-    This creates get_sources_url as the final URL for our API request.
-    We then use with as our context manager to send a
-     request using theurllib.request.urlopen() function
-      that takes in the get_sources_url as an argument and
-       sends a request as url
-      We use the read() function to read the response and store
-       it in a get_sources_data variable.
-      We then convert the JSON response to a Python dictionary
-      using json.loads function and pass in the get_sources_data variable.
     '''
     get_sources_url = base_url.format(category, api_key)
 

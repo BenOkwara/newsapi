@@ -1,7 +1,7 @@
 import unittest
-from .models import article
+from app.models import articles
+Article = articles.Article
 
-Article = article.Article
 class ArticleTest(unittest.TestCase):
     '''
         Test Class to test the behaviour of the Article class
@@ -10,7 +10,7 @@ class ArticleTest(unittest.TestCase):
         '''
                 Set up method that will run before every Test
                 '''
-        self.new_article = Article("",
+        self.new_article = Article("the-wall-street-journal",
                                  "The Wall Street Journal",
                                  "Juan Montes",
                                   "U.S.-Mexico Trade Pact Faces Scrutiny From Lawmakers at Home",
@@ -36,5 +36,5 @@ class ArticleTest(unittest.TestCase):
             self.assertEqual(self.new_article.urlToImage, "https:\/\/images.wsj.net\/im-23753\/social")
             self.assertEqual(self.new_article.publishedAt, "2018-08-30T10:51:22Z")
 
-    if __name__ == '__main__':
-        unittest.main()
+if __name__ == '__main__':
+     unittest.main()
