@@ -1,8 +1,9 @@
 from app import app
 import urllib.request,json
-from .models import source
+from .models import source,articles
 
 Source = source.Source
+Article= articles.Article
 
 # Getting api key
 api_key = app.config['NEWS_API_KEY']
@@ -12,6 +13,9 @@ base_url = app.config['SEARCH_API_BASE_URL']
 
 # Getting TOP HEADLINES url - the most popular headlines of the day
 headlines_url = app.config['HEADLINES_API_BASE_URL']
+
+# Getting the news articles url
+articles_url = app.config['NEWS_ARTICLE_API_BASE_URL']
 
 def get_sources(category):
     '''
@@ -69,12 +73,12 @@ def process_results(source_list):
     return source_results
 
 
-def get_articles(id):
+def get_articles():
     '''
     function to get json response from url
     '''
 
-    get_articles_details_url = article_base_url.format(id, api_key)
+    get_articles_details_url = articles_url.format('abc-news', api_key)
     print(get_articles_details_url)
     with urllib.request.urlopen(get_articles_details_url) as url:
         articles_details_data = url.read()
@@ -87,7 +91,7 @@ def get_articles(id):
 
             articles_results = process_articles(article_results_list)
 
-            print(articles_results)
+            # print(articles_results)
 
     return articles_results
 
@@ -98,10 +102,19 @@ def process_articles(articles_list):
         title = item.get('title')
         description = item.get('description')
         url = item.get('url')
-        image_url = item.get('urlToImage')
-        publish_time = item.get('publishedAt')
+        urlToImage = item.get('urlToImage')
+        publishedAt = item.get('publishedAt')
 
-        articles_object = Article(author, title, description, url, image_url, publish_time)
-        article_results.append(articles_object)
+
+        if url:
+
+            articles_object = Article (id,
+                                  author,
+                                  title,
+                                  description,
+                                  url,
+                                  urlToImage,
+                                  publishedAt)
+            article_results.append(articles_object)
 
     return article_results

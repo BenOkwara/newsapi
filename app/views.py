@@ -17,20 +17,34 @@ def index():
     sports_news = get_sources('general')
     science_news = get_sources('science')
     health_news = get_sources('health')
-
+    articles = get_articles()
     message = 'Welcome to News api room'
     title = 'Home - Welcome to The best News Review Website Online'
 
-    return render_template('index.html',
-                            message=message,
-                            title=title,
-                            general=general_news,
-                           business=business_news,
-                           entertainment=entertainment_news,
-                           technology=technology_news,
-                           sports=sports_news,
-                           science=science_news,
-                           health=health_news)
+    return render_template('index.html', articles=articles)
+def article(id):
+    '''
+    returns the articles
+    '''
+    article_news = get_articles('id')
+    description_news=get_articles('description')
+    publishedAt_news=get_articles('publishedAt')
+    author_news=get_articles('author')
+    name_news=get_articles('name')
+    url_news=get_articles('url')
+    urlToImage_news=get_articles('urlToImage')
+
+    title = f'{id}'
+    return render_template('article.html',
+                           title=title,
+                           article=article_news,
+                           author=author_news,
+                           description=description_news,
+                           publishedAt=publishedAt_news,
+                           name=name_news,
+                           url=url_news,
+                           urlToImage=urlToImage_news,
+                           )
 
 @app.route('/general')
 def general():
@@ -66,7 +80,6 @@ def technology():
     title = 'Home Page - Get The latest News Online Across The World'
     return render_template('technology.html',technology=technology_news)
 
-
 # SPORTS
 
 @app.route('/sports')
@@ -94,7 +107,6 @@ def health():
     return render_template('health.html',health=health_news)
 
 
-
 @app.route('/source/<int:source_id>')
 def source(source_id):
     '''
@@ -105,12 +117,7 @@ def source(source_id):
     return render_template('sources.html',id=source_id)
 
 
-app.route('/article/int:article_id')
+# app.route('/article/int:article_id')
 # @app.route('/templates/article/<id>')
-def article(id):
-    '''
-    returns the articles
-    '''
-    article_news = get_articles(id)
-    title = f'{id}'
-    return render_template('article.html', title=title, article=article_news)
+
+

@@ -15,7 +15,13 @@
          <ul>
              {{ macro.displaySourceList(general)}}
 
+             {{macro.displayArticlesList(id)}}
+
         </ul>
+
+        {%for article in articles %}
+        <p>{{article.title}}</p>
+        {% endfor %}
 
 
 {% endblock%}
