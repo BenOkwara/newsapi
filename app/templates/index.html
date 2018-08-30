@@ -1,7 +1,6 @@
-<!--<h1> {{message}}</h1>-->
 
+{% import 'macros.html' as macro%}
 
-<!doctype html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -17,17 +16,19 @@
         <!-- General Category Home section  -->
         <h3> TOP AND GENERAL HEADLINES </h3>
          <ul>
-            {% for general_news in general %}
 
-             <!--Loop the general news in the general category of the NewsAPI-->
-             <li>{{ general_id}}</li>
-             <li>{{ general_news.name}}</li>
-             <li>{{ general_news.description}}</li>
-             <li>{{ general_news.url}}</li>
-             <li>{{ general_news.country}}</li>
-             <li>{{ general_news.category}}</li>
+             {{ macro.displaySourceList(general)}}
+            <!--{% for general_news in general %}-->
 
-            {% endfor %}
+             <!--&lt;!&ndash;Loop the general news in the general category of the NewsAPI&ndash;&gt;-->
+             <!--<li>{{ general_id}}</li>-->
+             <!--<li>{{ general_news.name}}</li>-->
+             <!--<li>{{ general_news.description}}</li>-->
+             <!--<li>{{ general_news.url}}</li>-->
+             <!--<li>{{ general_news.country}}</li>-->
+             <!--<li>{{ general_news.category}}</li>-->
+
+            <!--{% endfor %}-->
         </ul>
 
 
