@@ -12,6 +12,12 @@ def index():
 
     # Getting popular news from different categories
     general_news = get_sources('general')
+    business_news = get_sources('business')
+    entertainment_news = get_sources('entertainment')
+    technology_news = get_sources('technology')
+    sports_news = get_sources('general')
+    science_news = get_sources('science')
+    health_news = get_sources('health')
 
     message = 'Welcome to News api room'
     title = 'Home - Welcome to The best News Review Website Online'
@@ -19,7 +25,13 @@ def index():
     return render_template('index.html',
                             message=message,
                             title=title,
-                            general=general_news)
+                            general=general_news,
+                           business=business_news,
+                           entertainment=entertainment_news,
+                           technology=technology_news,
+                           sports=sports_news,
+                           science=science_news,
+                           health=health_news)
 
 @app.route('/general')
 def general():
