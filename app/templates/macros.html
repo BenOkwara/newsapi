@@ -2,10 +2,9 @@
 
     {% for source in source_list %}
 
-<div class="card border-primary mb-3" style="max-width: 60rem;">
+<div class="card border-primary mb-3" style="max-width: 70rem;">
   <div class="card-header"><b>{{ source.name}}</b></div>
   <div class="card-body">
-    <h4 class="card-title">{{ source.country}}</h4>
     <p class="card-text">{{ source.description}}</p>
   </div>
 </div>
@@ -26,7 +25,6 @@
 <li>{{article.description}}</li>
 <li>{{article.url}}</li>
 <li>{{article.publishedAt}}</li>
-
 
         {% endfor %}
 

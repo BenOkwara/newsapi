@@ -25,20 +25,17 @@
 <!--<a href="/article/{{article.id}}"> </a>-->
 
    <p> {{article.id}}   </p>
-        <p>{{article.title}}</p>
+        <p><b>{{article.title}}</b></p>
+       <img src="{{article.urlToImage}}">
+    <p>{{article.author}}</p>
 <p>{{article.description}}</p>
 <p>{{article.url}}</p>
 <p>{{article.urlToImage}}</p>
 <p>{{article.publishedAt}}</p>
 
-    <img src="{{article.urlToImage}}">
 
         </ul>
 
         {% endfor %}
-
-
-
-
 
 {% endblock%}
