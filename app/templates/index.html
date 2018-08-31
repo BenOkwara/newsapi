@@ -21,7 +21,6 @@
 
     {%for article in articles %}
 
-
 <!--<a href="/article/{{article.id}}"> </a>-->
 
    <p> {{article.id}}   </p>
@@ -32,10 +31,30 @@
 <p>{{article.url}}</p>
 <p>{{article.urlToImage}}</p>
 <p>{{article.publishedAt}}</p>
-
-
         </ul>
 
         {% endfor %}
+
+
+
+
+
+{%for headline in headlines %}
+
+
+   <p> {{headline.id}}   </p>
+        <p><b>{{headline.title}}</b></p>
+       <img src="{{headline.urlToImage}}">
+    <p>{{headline.author}}</p>
+<p>{{headline.description}}</p>
+<p>{{headline.url}}</p>
+<p>{{headline.urlToImage}}</p>
+<p>{{headline.publishedAt}}</p>
+        </ul>
+
+        {% endfor %}
+
+
+
 
 {% endblock%}

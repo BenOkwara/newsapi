@@ -7,6 +7,8 @@ class Config:
     HEADLINES_API_BASE_URL = 'https://newsapi.org/v2/top-headlines?country=gb&category={}&apiKey={}'
     SEARCH_API_BASE_URL = 'https://newsapi.org/v2/sources?category={}&language=en&apiKey={}'
 
+
+# top headline - source
 class ProdConfig(Config):
     '''
     Production  configuration child class

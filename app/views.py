@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .requests import get_sources, get_articles
+from .requests import get_sources, get_articles, get_headlines
 
 # Views
 @app.route('/')
@@ -12,19 +12,26 @@ def index():
     # Getting popular news from different categories
     general_news = get_sources('general')[0:10]
 
+    headlines=get_headlines('id')[0:10]
+    headlines=headlines [0:10]
+
     business_news = get_sources('business')[0:10]
     entertainment_news = get_sources('entertainment')[0:10]
     technology_news = get_sources('technology')[0:10]
     sports_news = get_sources('general')[0:10]
     science_news = get_sources('science')[0:10]
     health_news = get_sources('health')[0:10]
+
     articles = get_articles('id')
     articles=articles[0:10]
+
+
     message = 'Welcome to News api room'
     title = 'Home - Welcome to The best News Review Website Online'
 
     return render_template('index.html',
                            articles=articles,
+                           headlines=headlines,
                            general=general_news,
                            business=business_news,
                            entertainment=entertainment_news,
@@ -56,6 +63,32 @@ def article(id):
                            url=url_news,
                            urlToImage=urlToImage_news,
                            )
+
+
+def headlines(id):
+    '''
+    returns the articles
+    '''
+    article_news = get_headlines('id')
+    description_news=get_headlines('description')
+    publishedAt_news=get_headlines('publishedAt')
+    author_news=get_headlines('author')
+    name_news=get_headlines('name')
+    url_news=get_headlines('url')
+    urlToImage_news=get_headlines('urlToImage')
+
+    title = f'{id}'
+    return render_template('article.html',
+                           title=title,
+                           article=article_news,
+                           author=author_news,
+                           description=description_news,
+                           publishedAt=publishedAt_news,
+                           name=name_news,
+                           url=url_news,
+                           urlToImage=urlToImage_news,
+                           )
+
 
 @app.route('/general')
 def general():
@@ -127,6 +160,12 @@ def source(source_id):
     '''
     return render_template('sources.html',id=id)
 
+
+
+
+app.route('/source/<int:article_id>')
+def source(article_id):
+    return
 
 # app.route('/article/int:article_id')
 # @app.route('/templates/article/<id>')
