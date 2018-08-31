@@ -4,9 +4,8 @@ class Config:
     '''
 
     NEWS_ARTICLE_API_BASE_URL = 'https://newsapi.org/v2/everything?sources={}&language=en&apiKey={}'
-    HEADLINES_API_BASE_URL = 'https://newsapi.org/v2/top-headlines?country=gb&category={}&apiKey={}'
+    HEADLINES_API_BASE_URL = 'https://newsapi.org/v2/top-headlines?country={}&category={}&apiKey={}'
     SEARCH_API_BASE_URL = 'https://newsapi.org/v2/sources?category={}&language=en&apiKey={}'
-
 
 # top headline - source
 class ProdConfig(Config):

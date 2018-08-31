@@ -1,9 +1,10 @@
 from app import app
 import urllib.request,json
-from .models import source, articles
+from .models import source, articles, headline
 
 Source = source.Source
 Article= articles.Article
+Headline=headline.Headline
 
 
 # Getting api key
@@ -51,17 +52,17 @@ def process_results(source_list):
     source_results = []
     for source_item in source_list:
         id = source_item.get('id')
-        print(id)
+        # print(id)
         name = source_item.get('name')
-        print(name)
+        # print(name)
         description = source_item.get('description')
-        print(description)
+        # print(description)
         url = source_item.get('url')
-        print(url)
+        # print(url)
         category = source_item.get('category')
-        print(category)
+        # print(category)
         country = source_item.get('country')
-        print(country)
+        # print(country)
 
         if url:
             source_object = Source(id,
@@ -100,19 +101,19 @@ def process_articles(articles_list):
     article_results = []
     for article in articles_list:
         id= article['source']['id']
-        print(id)
+        # print(id)
         author = article.get('author')
-        print(author)
+        # print(author)
         title = article.get('title')
-        print(title)
+        # print(title)
         description = article.get('description')
-        print(description)
+        # print(description)
         url = article.get('url')
-        print(url)
+        # print(url)
         urlToImage = article.get('urlToImage')
-        print(urlToImage)
+        # print(urlToImage)
         publishedAt = article.get('publishedAt')
-        print(publishedAt)
+        # print(publishedAt)
 
         if url:
 
@@ -127,38 +128,54 @@ def process_articles(articles_list):
 
     return article_results
 
-def get_headlines(category):
+
+def get_headlines():
     '''
     function to get json response from url
     '''
 
-    get_headlines_url = headlines_url.format(category, api_key)
-
-    with urllib.request.urlopen(get_headlines_url) as url:
+    get_headlines_details_url = headlines_url.format('us', '', api_key)
+    print(get_headlines_details_url)
+    with urllib.request.urlopen(get_headlines_details_url) as url:
         headlines_details_data = url.read()
         headlines_details_response = json.loads(headlines_details_data)
 
         headlines_results = None
-        print(headlines_details_data)
+
         if headlines_details_response['articles']:
             headlines_results_list = headlines_details_response['articles']
-            headlines_results = process_articles(headlines_results_list)
+
+            headlines_results = process_headlines(headlines_results_list)
+
 
     return headlines_results
 
-
-def process_headlines(headlines_list):
+def process_headlines(headline_list):
     headline_results = []
-    for headline in headlines_list:
+    for headline in headline_list:
+        id= headline['source']['id']
+        print(id)
         author = headline.get('author')
         print(author)
         title = headline.get('title')
+        print(title)
         description = headline.get('description')
+        print(description)
         url = headline.get('url')
+        print(url)
         urlToImage = headline.get('urlToImage')
+        print(urlToImage)
         publishedAt = headline.get('publishedAt')
+        print(publishedAt)
 
-        headlines_object = Article(author, title, description, url, urlToImage, publishedAt)
-        headline_results.append(headlines_object)
+        if url:
+            headlines_object = Headline (id,
+                                  author,
+                                  title,
+                                  description,
+                                  url,
+                                  urlToImage,
+                                  publishedAt)
+            headline_results.append(headlines_object)
 
     return headline_results

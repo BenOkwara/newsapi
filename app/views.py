@@ -12,8 +12,9 @@ def index():
     # Getting popular news from different categories
     general_news = get_sources('general')[0:10]
 
-    headlines=get_headlines('id')[0:10]
-    headlines=headlines [0:10]
+    headlines=get_headlines()[0:10]
+    print(headlines)
+    # headlines=headlines [0:10]
 
     business_news = get_sources('business')[0:10]
     entertainment_news = get_sources('entertainment')[0:10]
@@ -39,56 +40,56 @@ def index():
                            science=science_news,
                            health=health_news,
                            sports=sports_news)
-
-def article(id):
-    '''
-    returns the articles
-    '''
-    article_news = get_articles('id')
-    description_news=get_articles('description')
-    publishedAt_news=get_articles('publishedAt')
-    author_news=get_articles('author')
-    name_news=get_articles('name')
-    url_news=get_articles('url')
-    urlToImage_news=get_articles('urlToImage')
-
-    title = f'{id}'
-    return render_template('article.html',
-                           title=title,
-                           article=article_news,
-                           author=author_news,
-                           description=description_news,
-                           publishedAt=publishedAt_news,
-                           name=name_news,
-                           url=url_news,
-                           urlToImage=urlToImage_news,
-                           )
-
-
-def headlines(id):
-    '''
-    returns the articles
-    '''
-    article_news = get_headlines('id')
-    description_news=get_headlines('description')
-    publishedAt_news=get_headlines('publishedAt')
-    author_news=get_headlines('author')
-    name_news=get_headlines('name')
-    url_news=get_headlines('url')
-    urlToImage_news=get_headlines('urlToImage')
-
-    title = f'{id}'
-    return render_template('article.html',
-                           title=title,
-                           article=article_news,
-                           author=author_news,
-                           description=description_news,
-                           publishedAt=publishedAt_news,
-                           name=name_news,
-                           url=url_news,
-                           urlToImage=urlToImage_news,
-                           )
-
+#
+# def article(id):
+#     '''
+#     returns the articles
+#     '''
+#     article_news = get_articles('id')
+#     description_news=get_articles('description')
+#     publishedAt_news=get_articles('publishedAt')
+#     author_news=get_articles('author')
+#     name_news=get_articles('name')
+#     url_news=get_articles('url')
+#     urlToImage_news=get_articles('urlToImage')
+#
+#     title = f'{id}'
+#     return render_template('article.html',
+#                            title=title,
+#                            article=article_news,
+#                            author=author_news,
+#                            description=description_news,
+#                            publishedAt=publishedAt_news,
+#                            name=name_news,
+#                            url=url_news,
+#                            urlToImage=urlToImage_news,
+#                            )
+#
+#
+# def headlines(id):
+#     '''
+#     returns the articles
+#     '''
+#     article_news = get_headlines('id')
+#     description_news=get_headlines('description')
+#     publishedAt_news=get_headlines('publishedAt')
+#     author_news=get_headlines('author')
+#     name_news=get_headlines('name')
+#     url_news=get_headlines('url')
+#     urlToImage_news=get_headlines('urlToImage')
+#
+#     title = f'{id}'
+#     return render_template('article.html',
+#                            title=title,
+#                            article=article_news,
+#                            author=author_news,
+#                            description=description_news,
+#                            publishedAt=publishedAt_news,
+#                            name=name_news,
+#                            url=url_news,
+#                            urlToImage=urlToImage_news,
+#                            )
+#
 
 @app.route('/general')
 def general():
@@ -99,10 +100,10 @@ def general():
 
 # BUSINESS PAGE
 
-@app.route('/business')
-def business():
+@app.route('/<category>')
+def business(category):
 
-    business_news = get_sources('business')
+    business_news = get_sources(category)
     title= 'Home Page - Get The latest News Online Across The World'
     return render_template('business.html',business=business_news)
 
@@ -163,11 +164,6 @@ def source(source_id):
 
 
 
-app.route('/source/<int:article_id>')
+app.route('/source/<article_id>')
 def source(article_id):
     return
-
-# app.route('/article/int:article_id')
-# @app.route('/templates/article/<id>')
-
-
