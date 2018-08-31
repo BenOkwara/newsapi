@@ -13,23 +13,32 @@
         <!-- General Category Home section  -->
         <h3 text-center> NEWS SOURCES </h3>
          <ul>
-             {{ macro.displaySourceList(general)}}
-
-             {{macro.displayArticlesList(id)}}
+             <li>{{ macro.displaySourceList(general)}}</li>
 
         </ul>
 
+<ul>
 
-        {%for article in articles %}
+    {%for article in articles %}
+
+
+<!--<a href="/article/{{article.id}}"> </a>-->
+
+   <p> {{article.id}}   </p>
         <p>{{article.title}}</p>
 <p>{{article.description}}</p>
 <p>{{article.url}}</p>
 <p>{{article.urlToImage}}</p>
 <p>{{article.publishedAt}}</p>
 
+    <img src="{{article.urlToImage}}">
 
+        </ul>
 
         {% endfor %}
+
+
+
 
 
 {% endblock%}

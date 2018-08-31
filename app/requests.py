@@ -1,6 +1,6 @@
 from app import app
 import urllib.request,json
-from .models import source,articles
+from .models import source, articles
 
 Source = source.Source
 Article= articles.Article
@@ -37,6 +37,7 @@ def get_sources(category):
     return source_results
 
 def process_results(source_list):
+
     '''
     Function  that processes the
     news source result and transform them to a list of Objects
@@ -73,12 +74,12 @@ def process_results(source_list):
     return source_results
 
 
-def get_articles():
+def get_articles(id):
     '''
     function to get json response from url
     '''
 
-    get_articles_details_url = articles_url.format('abc-news', api_key)
+    get_articles_details_url = articles_url.format(id, api_key)
     print(get_articles_details_url)
     with urllib.request.urlopen(get_articles_details_url) as url:
         articles_details_data = url.read()
@@ -91,19 +92,26 @@ def get_articles():
 
             articles_results = process_articles(article_results_list)
 
-            # print(articles_results)
 
     return articles_results
 
 def process_articles(articles_list):
     article_results = []
-    for item in articles_list:
-        author = item.get('author')
-        title = item.get('title')
-        description = item.get('description')
-        url = item.get('url')
-        urlToImage = item.get('urlToImage')
-        publishedAt = item.get('publishedAt')
+    for article in articles_list:
+        id= article['source']['id']
+        print(id)
+        author = article.get('author')
+        print(author)
+        title = article.get('title')
+        print(title)
+        description = article.get('description')
+        print(description)
+        url = article.get('url')
+        print(url)
+        urlToImage = article.get('urlToImage')
+        print(urlToImage)
+        publishedAt = article.get('publishedAt')
+        print(publishedAt)
 
         if url:
 
@@ -116,4 +124,28 @@ def process_articles(articles_list):
                                   publishedAt)
             article_results.append(articles_object)
 
+
+
     return article_results
+#
+# def get_articles():
+#     '''
+#     function to get json response from url
+#     '''
+#
+#     get_articles_details_url = articles_url.format( api_key)
+#     print(get_articles_details_url)
+#     with urllib.request.urlopen(get_articles_details_url) as url:
+#         articles_details_data = url.read()
+#         articles_details_response = json.loads(articles_details_data)
+#
+#         articles_results = None
+#
+#         if articles_details_response['articles']:
+#             article_results_list = articles_details_response['articles']
+#
+#             articles_results = process_articles(article_results_list)
+#
+#             # print(articles_results)
+#
+#     return articles_results

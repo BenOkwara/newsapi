@@ -10,14 +10,16 @@ def index():
     '''
 
     # Getting popular news from different categories
-    general_news = get_sources('general')
-    business_news = get_sources('business')
-    entertainment_news = get_sources('entertainment')
-    technology_news = get_sources('technology')
-    sports_news = get_sources('general')
-    science_news = get_sources('science')
-    health_news = get_sources('health')
-    articles = get_articles()
+    general_news = get_sources('general')[0:10]
+
+    business_news = get_sources('business')[0:10]
+    entertainment_news = get_sources('entertainment')[0:10]
+    technology_news = get_sources('technology')[0:10]
+    sports_news = get_sources('general')[0:10]
+    science_news = get_sources('science')[0:10]
+    health_news = get_sources('health')[0:10]
+    articles = get_articles('id')
+    articles=articles[0:10]
     message = 'Welcome to News api room'
     title = 'Home - Welcome to The best News Review Website Online'
 
@@ -116,14 +118,14 @@ def health():
     return render_template('health.html',health=health_news)
 
 
-@app.route('/source/<int:source_id>')
+@app.route('/source/<id>')
 def source(source_id):
     '''
 
     Display news companies e.g BBC, CNN details page and data being specific articles
     posted by news sources.
     '''
-    return render_template('sources.html',id=source_id)
+    return render_template('sources.html',id=id)
 
 
 # app.route('/article/int:article_id')

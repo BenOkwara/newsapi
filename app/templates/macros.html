@@ -16,18 +16,17 @@
 
 <!--DISPLAYING ARTICLES-->
 
-{% macro displayArticlesList(articles_list) %}
+{% macro displayArticles(articles_list) %}
 
-        {% for item in articles_list %}
+        {% for article in articles_list %}
 
-<li>{{article.title}}</li>
+<li> <a href="{{article.title}}">{{article.title}}</a></li>
 <li>{{article.name}}</li>
 <li>{{article.author}}</li>
-
 <li>{{article.description}}</li>
-
 <li>{{article.url}}</li>
 <li>{{article.publishedAt}}</li>
+
 
         {% endfor %}
 
