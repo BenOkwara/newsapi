@@ -1,6 +1,6 @@
 import unittest
-from app.models import articles
-Article = articles.Article
+from app.models import Article
+# Article = articles.Article
 
 class ArticleTest(unittest.TestCase):
     '''
@@ -17,7 +17,7 @@ class ArticleTest(unittest.TestCase):
                                   "The respective legislators, who ultimately must ratify the agreement.",
                                   "https:\/\/www.wsj.com\/articles\/u-s-mexico-trade-pact-faces-scrutiny-from-lawmakers-at-home-1535621400",
                                   "https:\/\/images.wsj.net\/im-23753\/social",
-                                  "2018-08-30T10:51:22Z")
+                                  )
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_article, Article))
@@ -28,13 +28,13 @@ class ArticleTest(unittest.TestCase):
             :return:
             '''
             self.assertEqual(self.new_article.id, "the-wall-street-journal")
-            self.assertEqual(self.new_article.name, "The Wall Street Journal")
-            self.assertEqual(self.new_article.author, "Juan Montes")
+            # self.assertEqual(self.new_article.name, "The Wall Street Journal")
+            # self.assertEqual(self.new_article.author, "Juan Montes")
             self.assertEqual(self.new_article.title, "U.S.-Mexico Trade Pact Faces Scrutiny From Lawmakers at Home")
             self.assertEqual(self.new_article.description, "The respective legislators, who ultimately must ratify the agreement.")
             self.assertEqual(self.new_article.url, "https:\/\/www.wsj.com\/articles\/u-s-mexico-trade-pact-faces-scrutiny-from-lawmakers-at-home-1535621400")
             self.assertEqual(self.new_article.urlToImage, "https:\/\/images.wsj.net\/im-23753\/social")
             self.assertEqual(self.new_article.publishedAt, "2018-08-30T10:51:22Z")
-
-if __name__ == '__main__':
-     unittest.main()
+#
+# if __name__ == '__main__':
+#      unittest.main()

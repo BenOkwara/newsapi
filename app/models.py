@@ -1,3 +1,33 @@
+class Article:
+    '''
+    class to define news article objects
+    '''
+
+    def __init__(self, id, author, title, description, url, urlToImage, publishedAt):
+        self.id = id
+        self.author = author
+        self.title = title
+        self.description = description
+        self.url = url
+        self.urlToImage = urlToImage
+        self.publishedAt = publishedAt
+
+
+class Headline:
+    '''
+    class to define news article objects
+    '''
+
+    def __init__(self, id, author, title, description, url, urlToImage, publishedAt):
+        self.id = id
+        self.author = author
+        self.title = title
+        self.description = description
+        self.url = url
+        self.urlToImage = urlToImage
+        self.publishedAt = publishedAt
+
+
 class Source:
     '''
         News Source class to define Source Objects

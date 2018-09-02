@@ -1,10 +1,10 @@
-from flask import render_template
-from app import app
-from .requests import get_sources, get_articles, get_headlines
+from flask import render_template, request,redirect,url_for
+from . import main
+from ..requests import get_sources, get_articles, get_headlines
 
 
 # Views
-@app.route('/')
+@main.route('/')
 def index():
     '''
     View root page function that returns the index page and its data.
@@ -41,59 +41,7 @@ def index():
                            health=health_news,
                            sports=sports_news)
 
-
-#
-# def article(id):
-#     '''
-#     returns the articles
-#     '''
-#     article_news = get_articles('id')
-#     description_news=get_articles('description')
-#     publishedAt_news=get_articles('publishedAt')
-#     author_news=get_articles('author')
-#     name_news=get_articles('name')
-#     url_news=get_articles('url')
-#     urlToImage_news=get_articles('urlToImage')
-#
-#     title = f'{id}'
-#     return render_template('article.html',
-#                            title=title,
-#                            article=article_news,
-#                            author=author_news,
-#                            description=description_news,
-#                            publishedAt=publishedAt_news,
-#                            name=name_news,
-#                            url=url_news,
-#                            urlToImage=urlToImage_news,
-#                            )
-#
-#
-# def headlines(id):
-#     '''
-#     returns the articles
-#     '''
-#     article_news = get_headlines('id')
-#     description_news=get_headlines('description')
-#     publishedAt_news=get_headlines('publishedAt')
-#     author_news=get_headlines('author')
-#     name_news=get_headlines('name')
-#     url_news=get_headlines('url')
-#     urlToImage_news=get_headlines('urlToImage')
-#
-#     title = f'{id}'
-#     return render_template('article.html',
-#                            title=title,
-#                            article=article_news,
-#                            author=author_news,
-#                            description=description_news,
-#                            publishedAt=publishedAt_news,
-#                            name=name_news,
-#                            url=url_news,
-#                            urlToImage=urlToImage_news,
-#                            )
-#
-
-@app.route('/general')
+@main.route('/general')
 def general():
     general_news = get_sources('general')
     title = 'Home Page - Get The latest News Online Across The World'
@@ -102,14 +50,14 @@ def general():
 
 # BUSINESS PAGE
 
-@app.route('/<category>')
+@main.route('/<category>')
 def business(category):
     business_news = get_sources(category)
     title = 'Home Page - Get The latest News Online Across The World'
     return render_template('business.html', business=business_news)
 
 
-@app.route('/articles/<id>')
+@main.route('/articles/<id>')
 def articles(id):
     '''
        View  page function that returns the details page and its data
@@ -120,7 +68,7 @@ def articles(id):
     return render_template('article.html', articles=articles, name=name, name_source=id)
 
 
-@app.route('/entertainment')
+@main.route('/entertainment')
 def entertainment():
     entertainment_news = get_sources('entertainment')
     title = 'Home Page - Get The latest News Online Across The World'
@@ -129,7 +77,7 @@ def entertainment():
 
 # TECHNOLOGY PAGE
 
-@app.route('/technology')
+@main.route('/technology')
 def technology():
     technology_news = get_sources('technology')
     title = 'Home Page - Get The latest News Online Across The World'
@@ -138,7 +86,7 @@ def technology():
 
 # SPORTS
 
-@app.route('/sports')
+@main.route('/sports')
 def sports():
     sports_news = get_sources('sports')
     title = 'Home Page - Get The latest News Online Across The World'
@@ -146,7 +94,7 @@ def sports():
 
 
 # SCIENCE
-@app.route('/science')
+@main.route('/science')
 def science():
     science_news = get_sources('science')
     title = 'Home Page - Get The latest News Online Across The World'
@@ -155,23 +103,9 @@ def science():
 
 # HEALTH
 
-@app.route('/health')
+@main.route('/health')
 def health():
     health_news = get_sources('health')
     title = 'Home Page - Get The latest News Online Across The World'
     return render_template('health.html', health=health_news)
 
-#
-# @app.route('/source/<id>')
-# def source(source_id):
-#     '''
-#
-#     Display news companies e.g BBC, CNN details page and data being specific articles
-#     posted by news sources.
-#     '''
-#     return render_template('sources.html',id=id)
-#
-#
-# app.route('/source/<article_id>')
-# def source(article_id):
-#     return

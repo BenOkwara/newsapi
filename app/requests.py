@@ -1,22 +1,25 @@
-from app import app
-import urllib.request, json
-from .models import source, articles, headline
 
-Source = source.Source
-Article = articles.Article
-Headline = headline.Headline
+import urllib.request, json
+from .models import Source, Article, Headline
+
+# Source = source.Source
+# Article = article.Article
+# Headline = headline.Headline
 
 # Getting api key
-api_key = app.config['NEWS_API_KEY']
 
-# Getting the news source base url
-base_url = app.config['SEARCH_API_BASE_URL']
+api_key= None
+base_url= None
+headlines_url= None
+articles_url= None
 
-# Getting TOP HEADLINES url - the most popular headlines of the day
-headlines_url = app.config['HEADLINES_API_BASE_URL']
+def configure_request(app):
 
-# Getting the news articles url
-articles_url = app.config['NEWS_ARTICLE_API_BASE_URL']
+    global api_key, base_url, headlines_url, articles_url
+    api_key = app.config['NEWS_API_KEY']
+    base_url = app.config['SEARCH_API_BASE_URL']
+    headlines_url = app.config['HEADLINES_API_BASE_URL']
+    articles_url = app.config['NEWS_ARTICLE_API_BASE_URL']
 
 
 def get_sources(category):
