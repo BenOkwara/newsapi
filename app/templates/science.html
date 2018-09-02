@@ -3,20 +3,15 @@
 
 
 {% block content %}
-<div class="jumbotron">
-    <h1 class="display-3" text-center> SCIENCE NEWS</h1>
-    <p class="lead">This is a simple business page with simple news component for calling extra attention to featured
-        content or information.</p>
-    <hr class="my-4">
 
-    <ul>
+<div class="jumbotron" style="background-color: white;">
+  <h1 class="display-3" style="text-center"> SCIENCE NEWS</h1>
+  <hr class="my-4">
 
-        {{ macro.displaySourceList(science)}}
+      <ul>
 
-    </ul>
+             {{ macro.displaySourceList(science)}}
 
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-    </p>
+        </ul>
 </div>
 {% endblock%}

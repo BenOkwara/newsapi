@@ -1,7 +1,6 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
 
-
 <!--<h3> BUSINESS NEWS </h3>-->
          <!--<ul>-->
 
@@ -9,12 +8,10 @@
 
         <!--</ul>-->
 
-
 {% block content %}
 
-<div class="jumbotron">
-  <h1 class="display-3">BUSINESS NEWS</h1>
-  <p class="lead">This is a simple business page with simple news component for calling extra attention to featured content or information.</p>
+<div class="jumbotron" style="background-color: white;">
+  <h1 class="display-3" style="text-center">BUSINESS NEWS</h1>
   <hr class="my-4">
 
       <ul>
@@ -22,11 +19,5 @@
              {{ macro.displaySourceList(business)}}
 
         </ul>
-
-
-      It uses utility classes for typography and spacing to space content out within the larger container.
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-  </p>
 </div>
 {% endblock%}
