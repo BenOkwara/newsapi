@@ -107,7 +107,17 @@ def business(category):
     title= 'Home Page - Get The latest News Online Across The World'
     return render_template('business.html',business=business_news)
 
-# ENTERTAINMENT PAGE
+
+@app.route('/articles/<id>')
+def articles(id):
+    '''
+       View  page function that returns the details page and its data
+       '''
+    name="melissamalala"
+    articles=get_articles(id)
+
+    return render_template('article.html', articles=articles, name=name,name_source=id)
+
 
 @app.route('/entertainment')
 def entertainment():
@@ -130,7 +140,7 @@ def technology():
 @app.route('/sports')
 def sports():
 
-    sports_news = get_sources('general')
+    sports_news = get_sources('sports')
     title = 'Home Page - Get The latest News Online Across The World'
     return render_template('sports.html',sports=sports_news)
 
@@ -151,19 +161,17 @@ def health():
     title= 'Home Page - Get The latest News Online Across The World'
     return render_template('health.html',health=health_news)
 
-
-@app.route('/source/<id>')
-def source(source_id):
-    '''
-
-    Display news companies e.g BBC, CNN details page and data being specific articles
-    posted by news sources.
-    '''
-    return render_template('sources.html',id=id)
-
-
-
-
-app.route('/source/<article_id>')
-def source(article_id):
-    return
+#
+# @app.route('/source/<id>')
+# def source(source_id):
+#     '''
+#
+#     Display news companies e.g BBC, CNN details page and data being specific articles
+#     posted by news sources.
+#     '''
+#     return render_template('sources.html',id=id)
+#
+#
+# app.route('/source/<article_id>')
+# def source(article_id):
+#     return

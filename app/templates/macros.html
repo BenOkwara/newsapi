@@ -1,10 +1,16 @@
 {% macro displaySourceList(source_list) %}
 
+
+<h3 style="text-align:center; color:#0d47a1" class="display-3">News Sources</h3>
+<div class="container">
+<div class="card-columns">
     {% for source in source_list %}
 
-<div class="card border-primary mb-3" style="max-width: 70rem;">
-  <div class="card-header"><b>{{ source.name}}</b></div>
-  <div class="card-body">
+
+
+<div class="card border-secondary mb-3" style="max-width: 18rem;">
+  <div class="card-header"><a href="/articles/{{source.id}}">{{source.name}}</a></div>
+  <div class="card-body text-secondary">
     <p class="card-text">{{ source.description}}</p>
   </div>
 </div>
@@ -12,18 +18,22 @@
 {% endfor %}
 {% endmacro %}
 
+
 <!--DISPLAYING ARTICLES-->
 
-{% macro displayArticles(articles_list) %}
 
-        {% for article in articles_list %}
+<!--RANDOM NEWS ARTICLES-->
 
-<li> <a href="{{article.title}}">{{article.title}}</a></li>
-<li>{{article.name}}</li>
-<li>{{article.author}}</li>
-<li>{{article.description}}</li>
-<li>{{article.url}}</li>
-<li>{{article.publishedAt}}</li>
+<!--{% macro displayArticles(articles_list) %}-->
 
-        {% endfor %}
-{% endmacro %}
+        <!--{% for article in articles_list %}-->
+
+<!--<li> <a href="{{article.title}}">{{article.title}}</a></li>-->
+<!--<li>{{article.name}}</li>-->
+<!--<li>{{article.author}}</li>-->
+<!--<li>{{article.description}}</li>-->
+<!--<li>{{article.url}}</li>-->
+<!--<li>{{article.publishedAt}}</li>-->
+
+        <!--{% endfor %}-->
+<!--{% endmacro %}

@@ -1,26 +1,33 @@
 {% extends 'base.html'%}
-{% import 'macros.html' as macro%}
 
 {% block content %}
 
 <h1>NEWS ARTICLES</h1>
+<h3 style="text-align:center; color:#0d47a1" class="display-3">News from {{ name_source }}</h3>
+
+<div class="container">
+<div class="card-columns">
+
+    {%for article in articles %}
+
+<div class="card border-secondary">
+    <img class="card-img-top" src="{{ article.urlToImage }}" alt="Card image cap" size="100px180">
+    <div class="card-body">
+      <h5 class="card-title">{{article.title}}</h5>
+      <p class="card-text">{{article.description}}</p>
+            <a href="{{article.url}}" class="card-link">Read More</a>
 
 
-{{macro displayArticles(article)}}
+    </div>
+
+            <footer class="blockquote-footer"> <cite title="Source Title">Posted on {{article.publishedAt}} </cite></footer>
+  </div>
+                {% endfor %}
+
+      </div>
+          </div>
+
 
 {% endblock%}
 
- <!--<li>{{ macro.displayArticleList(article)}}</li>-->
 
-
- <!--{%for article in articles %}-->
-
-
-<!--<a href="/article/{{article.id}}"> {{article.id}}</a>-->
-        <!--<p>{{article.title}}</p>-->
-<!--<p>{{article.description}}</p>-->
-<!--<p>{{article.url}}</p>-->
-<!--<p>{{article.urlToImage}}</p>-->
-<!--<p>{{article.publishedAt}}</p>-->
-
-        <!--{% endfor %}-->
