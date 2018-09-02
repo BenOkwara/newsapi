@@ -1,9 +1,18 @@
 {% extends 'base.html'%}
 
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+
 {% block content %}
 
-<h1>NEWS ARTICLES</h1>
-<h3 style="text-align:center; color:#0d47a1" class="display-3">News from {{ name_source }}</h3>
+
+
+<div class="jumbotron mt-0">
+<h1 style="text-align:center">NEWS ARTICLES</h1>
+<h3 style="text-align:center; color:#0d47a1" class="display-3">News from {{ name_source }}
 
 <div class="container">
     <div class="card-columns">
@@ -11,7 +20,7 @@
         {%for article in articles %}
 
         <div class="card border-secondary">
-            <img class="card-img-top" src="{{ article.urlToImage }}" alt="Card image cap" size="100px180">
+            <img class="card-img-top" src="{{ article.urlToImage }}" alt="An Image Here" style="width:450px;height: 450px;">
             <div class="card-body">
                 <h5 class="card-title">{{article.title}}</h5>
                 <p class="card-text">{{article.description}}</p>
@@ -27,6 +36,7 @@
 
     </div>
 </div>
+    </div>
 
 
 {% endblock%}
