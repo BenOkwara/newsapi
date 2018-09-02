@@ -3,7 +3,7 @@ class Source:
         News Source class to define Source Objects
         '''
 
-    def __init__(self, id, name, description, url, category, country ):
+    def __init__(self, id, name, description, url, category, country):
         self.id = id
         self.name = name
         self.description = description
@@ -19,4 +19,3 @@ class Source:
     5. category - The category of news ,e.g entertainment, business, technology
     6. country - The country that the news originates from, e.g ABC News is from USA
     '''
-

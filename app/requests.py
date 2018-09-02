@@ -1,11 +1,10 @@
 from app import app
-import urllib.request,json
+import urllib.request, json
 from .models import source, articles, headline
 
 Source = source.Source
-Article= articles.Article
-Headline=headline.Headline
-
+Article = articles.Article
+Headline = headline.Headline
 
 # Getting api key
 api_key = app.config['NEWS_API_KEY']
@@ -18,6 +17,7 @@ headlines_url = app.config['HEADLINES_API_BASE_URL']
 
 # Getting the news articles url
 articles_url = app.config['NEWS_ARTICLE_API_BASE_URL']
+
 
 def get_sources(category):
     '''
@@ -38,8 +38,8 @@ def get_sources(category):
 
     return source_results
 
-def process_results(source_list):
 
+def process_results(source_list):
     '''
     Function  that processes the
     news source result and transform them to a list of Objects
@@ -94,13 +94,13 @@ def get_articles(id):
 
             articles_results = process_articles(article_results_list)
 
-
     return articles_results
+
 
 def process_articles(articles_list):
     article_results = []
     for article in articles_list:
-        id= article['source']['id']
+        id = article['source']['id']
         # print(id)
         author = article.get('author')
         # print(author)
@@ -116,14 +116,13 @@ def process_articles(articles_list):
         # print(publishedAt)
 
         if url:
-
-            articles_object = Article (id,
-                                  author,
-                                  title,
-                                  description,
-                                  url,
-                                  urlToImage,
-                                  publishedAt)
+            articles_object = Article(id,
+                                      author,
+                                      title,
+                                      description,
+                                      url,
+                                      urlToImage,
+                                      publishedAt)
             article_results.append(articles_object)
 
     return article_results
@@ -147,13 +146,13 @@ def get_headlines():
 
             headlines_results = process_headlines(headlines_results_list)
 
-
     return headlines_results
+
 
 def process_headlines(headline_list):
     headline_results = []
     for headline in headline_list:
-        id= headline['source']['id']
+        id = headline['source']['id']
         print(id)
         author = headline.get('author')
         print(author)
@@ -169,13 +168,13 @@ def process_headlines(headline_list):
         print(publishedAt)
 
         if url:
-            headlines_object = Headline (id,
-                                  author,
-                                  title,
-                                  description,
-                                  url,
-                                  urlToImage,
-                                  publishedAt)
+            headlines_object = Headline(id,
+                                        author,
+                                        title,
+                                        description,
+                                        url,
+                                        urlToImage,
+                                        publishedAt)
             headline_results.append(headlines_object)
 
     return headline_results

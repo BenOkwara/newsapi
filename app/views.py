@@ -2,6 +2,7 @@ from flask import render_template
 from app import app
 from .requests import get_sources, get_articles, get_headlines
 
+
 # Views
 @app.route('/')
 def index():
@@ -12,7 +13,7 @@ def index():
     # Getting popular news from different categories
     general_news = get_sources('general')[0:10]
 
-    headlines=get_headlines()[0:10]
+    headlines = get_headlines()[0:10]
     print(headlines)
     # headlines=headlines [0:10]
 
@@ -24,8 +25,7 @@ def index():
     health_news = get_sources('health')[0:10]
 
     articles = get_articles('id')
-    articles=articles[0:10]
-
+    articles = articles[0:10]
 
     message = 'Welcome to News api room'
     title = 'Home - Welcome to The best News Review Website Online'
@@ -40,6 +40,8 @@ def index():
                            science=science_news,
                            health=health_news,
                            sports=sports_news)
+
+
 #
 # def article(id):
 #     '''
@@ -93,19 +95,18 @@ def index():
 
 @app.route('/general')
 def general():
-
     general_news = get_sources('general')
     title = 'Home Page - Get The latest News Online Across The World'
-    return render_template('general.html',general=general_news)
+    return render_template('general.html', general=general_news)
+
 
 # BUSINESS PAGE
 
 @app.route('/<category>')
 def business(category):
-
     business_news = get_sources(category)
-    title= 'Home Page - Get The latest News Online Across The World'
-    return render_template('business.html',business=business_news)
+    title = 'Home Page - Get The latest News Online Across The World'
+    return render_template('business.html', business=business_news)
 
 
 @app.route('/articles/<id>')
@@ -113,53 +114,52 @@ def articles(id):
     '''
        View  page function that returns the details page and its data
        '''
-    name="melissamalala"
-    articles=get_articles(id)
+    name = "melissamalala"
+    articles = get_articles(id)
 
-    return render_template('article.html', articles=articles, name=name,name_source=id)
+    return render_template('article.html', articles=articles, name=name, name_source=id)
 
 
 @app.route('/entertainment')
 def entertainment():
-
     entertainment_news = get_sources('entertainment')
     title = 'Home Page - Get The latest News Online Across The World'
     return render_template('entertainment.html', entertainment=entertainment_news)
+
 
 # TECHNOLOGY PAGE
 
 @app.route('/technology')
 def technology():
-
     technology_news = get_sources('technology')
     title = 'Home Page - Get The latest News Online Across The World'
-    return render_template('technology.html',technology=technology_news)
+    return render_template('technology.html', technology=technology_news)
+
 
 # SPORTS
 
 @app.route('/sports')
 def sports():
-
     sports_news = get_sources('sports')
     title = 'Home Page - Get The latest News Online Across The World'
-    return render_template('sports.html',sports=sports_news)
+    return render_template('sports.html', sports=sports_news)
+
 
 # SCIENCE
 @app.route('/science')
 def science():
-
     science_news = get_sources('science')
     title = 'Home Page - Get The latest News Online Across The World'
-    return render_template('science.html',science=science_news)
+    return render_template('science.html', science=science_news)
+
 
 # HEALTH
 
 @app.route('/health')
 def health():
-
     health_news = get_sources('health')
-    title= 'Home Page - Get The latest News Online Across The World'
-    return render_template('health.html',health=health_news)
+    title = 'Home Page - Get The latest News Online Across The World'
+    return render_template('health.html', health=health_news)
 
 #
 # @app.route('/source/<id>')
