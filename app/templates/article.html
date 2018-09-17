@@ -1,44 +1,49 @@
-{% extends 'base.html'%}
-
-{% block styles%}
-{{ super() }}
-<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-{% endblock %}
-
-
-{% block content %}
+{% extends 'base.html'%} {% block styles%} {{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}"> {% endblock %} {% block content %}
 
 
 
-<div class="jumbotron mt-0">
-<h1 style="text-align:center">NEWS ARTICLES</h1>
-<h3 style="text-align:center; color:#0d47a1" class="display-3">News from {{ name_source }}
+<div class="jumbotron mb-0 mt-0">
 
-<div class="container">
-    <div class="card-columns">
+    <h1 style="text-align:center">NEWS ARTICLES</h1>
+    <h3 style="text-align:center; color: black;" class="display-3">News From {{ name_source }} {%for article in articles
+        %}
 
-        {%for article in articles %}
-
-        <div class="card border-secondary">
-            <img class="card-img-top" src="{{ article.urlToImage }}" alt="An Image Here" style="width:450px;height: 450px;">
+        <div class="card mb-3" style="max-width: 50rem;">
+            <img class="card-img-top" src="{{article.urlToImage}}" style="width:500px;height: 200px;" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">{{article.title}}</h5>
+                <h5 class="card-title"> <a href="{{article.url}}"> {{article.title}} </a></h5>
                 <p class="card-text">{{article.description}}</p>
-                <a href="{{article.url}}" class="card-link">Read More</a>
-
-
+                <p class="card-text"><small class="text-muted">{{article.publishedAt}}</small></p>
             </div>
-
-            <footer class="blockquote-footer"><cite title="Source Title">Posted on {{article.publishedAt}} </cite>
-            </footer>
         </div>
         {% endfor %}
-
-    </div>
 </div>
-    </div>
-
 
 {% endblock%}
 
 
+<!-- 
+<div class="container">
+    <div class="card-columns">
+
+        
+
+        <div class="card border-secondary">
+            <img class="card-img-top" src="{{ article.urlToImage }}" alt="An Image Here" style="width:450px;height: 450px;">
+            <!-- <div class="card-body"> -->
+<!-- <h5 class="card-title">{{article.title}}</h5>
+<p class="card-text">{{article.description}}</p>
+<a href="{{article.url}}" class="card-link">Read More</a>
+
+
+</div>
+
+<footer class="blockquote-footer"><cite title="Source Title">Posted on {{article.publishedAt}} </cite>
+</footer>
+</div>
+
+
+</div>
+</div>
+</div>

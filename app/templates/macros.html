@@ -1,29 +1,24 @@
-{% macro displaySourceList(source_list) %}
+<!-- {% macro displaySourceList(source_list) %}
+
+<ul>
+  {% for source in source_list %}
+  <a href="/articles/{{source.id}}">
+    <p class="paragraph" style="text-align: center; font-size: 18px; font-family: 'Oswald', sans-serif;">{{source.name}}</p>
+  </a>
+  <p style="text-align: center; font-size: 12px; font-family: 'Oswald', sans-serif;">{{ source.description}}</p>
+  {% endfor %}
+</ul>
+
+{% endmacro %} -->
 
 
-<div class="main">
-    <div class="container-fluid">
-      <div class="row">
 
-          <div class="col-3">
-          <div class="card-column">
-            <div class="card-header">
-
-<h3 style="text-align:center; color: black,
- font-size: 45px;" class="display-3">News Sources</h3>
-            </div>
-
-<div class="list-group list-group-flush">
-              <ul>
-        {% for source in source_list %}
-                  <a href="/articles/{{source.id}}">
-                      <p class="text-capitalize">{{source.name}}</p>
-                  </a>
-                <p class="">{{ source.description}}</p>
-        {% endfor %}
-          </ul>
-
+{% macro displaySourceList(source_list) %} {% for source in source_list %}
+<div class="card text-white border-primary bg-light mb-3" style="max-width: 18rem;">
+  <div class="card-header"><a href="/articles/{{source.id}}"> {{source.name}}</a></div>
+  <div class="card-body">
+    <h5 class="card-title">{{source.id}}</h5>
+    <p class="card-text">{{ source.description}}</p>
   </div>
-    </div>
-  </div>
-        {% endmacro %}
+</div>
+{% endfor %} {% endmacro %}

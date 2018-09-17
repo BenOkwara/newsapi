@@ -11,21 +11,21 @@ def index():
     '''
 
     # Getting popular news from different categories
-    general_news = get_sources('general')[0:10]
+    general_news = get_sources('general')[0:5]
 
-    headlines = get_headlines()[0:10]
+    headlines = get_headlines()[0:5]
     print(headlines)
     # headlines=headlines [0:10]
 
-    business_news = get_sources('business')[0:10]
-    entertainment_news = get_sources('entertainment')[0:10]
-    technology_news = get_sources('technology')[0:10]
-    sports_news = get_sources('general')[0:10]
-    science_news = get_sources('science')[0:10]
-    health_news = get_sources('health')[0:10]
+    business_news = get_sources('business')[0:5]
+    entertainment_news = get_sources('entertainment')[0:5]
+    technology_news = get_sources('technology')[0:5]
+    sports_news = get_sources('general')[0:5]
+    science_news = get_sources('science')[0:5]
+    health_news = get_sources('health')[0:5]
 
     articles = get_articles('id')
-    articles = articles[0:10]
+    articles = articles[0:5]
 
     message = 'Welcome to News api room'
     title = 'Home - Welcome to The best News Review Website Online'
